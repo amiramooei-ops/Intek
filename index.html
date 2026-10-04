@@ -1,0 +1,136 @@
+A doctype html, html element with head and body. Link style dot css in the head. Link app dot js before the closing body tag.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header>
+            <h1>📦 Intek</h1>
+            <h2>Inventory Management System</h2>
+            <button id="addProductBtn">+ Add Product</button>
+            <div id="productForm" hidden>
+    <h3>Add New Product</h3>
+
+    <input id="productName" placeholder="Product Name">
+
+    <input id="productQuantity" type="number" min="0" placeholder="Quantity">
+
+    <input id="productLocation" placeholder="Location">
+
+    <input id="productShape" placeholder="Shape">
+
+    <button id="saveProductBtn">Save Product</button>
+</div>
+        </header>
+
+        <section class="inventory-section">
+
+            <h2>Products</h2>
+
+            <div class="table-container">
+
+                <table>
+                  <thead>
+    <tr>
+        <th>No.</th>
+        <th>Product</th>
+        <th>Location</th>
+        <th>Stock</th>
+        <th>Add</th>
+        <th>Remove</th>
+        <th>Status</th>
+        <th>Shape</th>
+        <th>Edit</th>
+    </tr>
+</thead>
+
+                    <tbody id="inventoryTable">
+
+                        <tr>
+                            <td>Cement</td>
+                            <td>Area A</td>
+                            <td>Bag</td>
+                            <td>25</td>
+                            <td><button class="add-btn">+</button></td>
+                            <td><button class="remove-btn">−</button></td>
+                            <td>Available</td>
+                        </tr>
+
+                        <tr>
+                            <td>Sand</td>
+                            <td>Area B</td>
+                            <td>Bulk</td>
+                            <td>8</td>
+                            <td><button class="add-btn">+</button></td>
+                            <td><button class="remove-btn">−</button></td>
+                            <td class="low-stock">Low Stock</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+        <section class="map-section">
+
+            <h2>📍 Location</h2>
+
+            <div id="warehouseMap" style="max-width:750px; margin:auto;">
+    <h3>Sample Warehouse Map</h3>
+
+    <svg viewBox="0 0 600 400"
+         style="width:100%; border:2px solid #555; background:#f5f5f5;">
+
+        <!-- Storage areas -->
+        <rect x="40" y="40" width="180" height="100"
+              fill="#dce9f8" stroke="#333"/>
+        <text x="95" y="95" font-size="20">Area A</text>
+
+        <rect x="380" y="40" width="180" height="100"
+              fill="#dce9f8" stroke="#333"/>
+        <text x="435" y="95" font-size="20">Area B</text>
+
+        <rect x="40" y="250" width="180" height="100"
+              fill="#dce9f8" stroke="#333"/>
+        <text x="95" y="305" font-size="20">Area C</text>
+
+        <rect x="380" y="250" width="180" height="100"
+              fill="#dce9f8" stroke="#333"/>
+        <text x="435" y="305" font-size="20">Area D</text>
+
+        <!-- Green example route -->
+        <polyline id="productRoute" points="300,350 300,190 130,190 130,140"
+                  fill="none"
+                  stroke="green"
+                  stroke-width="5"
+                  stroke-dasharray="10,5"/>
+
+        <!-- Blue starting position -->
+        <circle cx="300" cy="350" r="12" fill="blue"/>
+        <text x="315" y="355" font-size="17">You</text>
+
+        <!-- Red destination -->
+        <circle id="productMarker" cx="130" cy="140" r="10" fill="red"/>
+    </svg>
+
+    <p>Blue: You | Red: Product | Green: Route</p>
+</div>
+
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
